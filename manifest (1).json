@@ -1,0 +1,37 @@
+{
+  "project": "nq-research-data",
+  "updated": "2026-09-14",
+  "_howto": [
+    "ONE file per instrument per timeframe -- the longest export. In TradingView, each",
+    "successive download of the same chart reaches further back and ends at the same point,",
+    "so the newest export is always the longest. Keep it, discard the earlier ones.",
+    "",
+    "To add an instrument: create data/<root>/ , upload the CSVs, add an entry below with",
+    "just 'path'. bootstrap.py inventories it fresh and prints a paste-ready fingerprint",
+    "block. After that any silent change to the file gets caught.",
+    "",
+    "Filenames carry their date range so a refreshed export can never silently replace a",
+    "different one -- the defect that invalidated the old '5 (4)' master."
+  ],
+  "instruments": {
+    "NQ": {
+      "name": "E-mini Nasdaq-100 continuous (NQ1!)",
+      "point_value_micro": 2.0,
+      "point_value_emini": 20.0,
+      "timeframes": {
+        "3":  {"path": "data/nq/NQ_3m_2026-07-13_to_2026-09-12.csv",
+               "sha256": "ebd0b30495ca302377a7d9d580eaacf6c4d6ec918ca0880f02eac95dce4655b6",
+               "rows": 20620, "first": "2026-07-13T03:30:00+05:30", "last": "2026-09-12T02:27:00+05:30"},
+        "5":  {"path": "data/nq/NQ_5m_2026-06-01_to_2026-09-12.csv",
+               "sha256": "2b495a105d99a426ffccad8bd50ff779b25c7f8b414a21acaa4c5903a049227a",
+               "rows": 20556, "first": "2026-06-01T03:30:00+05:30", "last": "2026-09-12T02:25:00+05:30"},
+        "6":  {"path": "data/nq/NQ_6m_2026-05-20_to_2026-09-12.csv",
+               "sha256": "cac01d3386a33678310ab3a708fc1bb7b90f07b976cc83eb4ddd5ee487a876ec",
+               "rows": 18848, "first": "2026-05-20T11:42:00+05:30", "last": "2026-09-12T02:24:00+05:30"},
+        "15": {"path": "data/nq/NQ_15m_2026-05-07_to_2026-09-12.csv",
+               "sha256": "052b4fce9ec5404e317a5efe77884f99467f7168476b2531a0ca302eb53ebad8",
+               "rows": 8368, "first": "2026-05-07T11:30:00+05:30", "last": "2026-09-12T02:15:00+05:30"}
+      }
+    }
+  }
+}
