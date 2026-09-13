@@ -1,0 +1,203 @@
+{
+  "project": "nq-research-data",
+  "updated": "2026-09-14",
+  "_howto": [
+    "ONE file per instrument per timeframe -- the longest export. In TradingView, each",
+    "successive download of the same chart reaches further back and ends at the same point,",
+    "so the newest export is always the longest. Keep it, discard the earlier ones.",
+    "",
+    "To add an instrument: create data/<root>/ , upload the CSVs, add an entry below with",
+    "just 'path'. bootstrap.py inventories it fresh and prints a paste-ready fingerprint",
+    "block. After that any silent change to the file gets caught.",
+    "",
+    "Filenames carry their date range so a refreshed export can never silently replace a",
+    "different one -- the defect that invalidated the old '5 (4)' master."
+  ],
+  "instruments": {
+    "NQ": {
+      "name": "E-mini Nasdaq-100 continuous (NQ1!)",
+      "point_value_micro": 2.0,
+      "point_value_emini": 20.0,
+      "timeframes": {
+        "3": {
+          "path": "data/nq/NQ_3m_2026-07-13_to_2026-09-12.csv",
+          "sha256": "ebd0b30495ca302377a7d9d580eaacf6c4d6ec918ca0880f02eac95dce4655b6",
+          "rows": 20620,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-09-12T02:27:00+05:30"
+        },
+        "5": {
+          "path": "data/nq/NQ_5m_2026-06-01_to_2026-09-12.csv",
+          "sha256": "2b495a105d99a426ffccad8bd50ff779b25c7f8b414a21acaa4c5903a049227a",
+          "rows": 20556,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-09-12T02:25:00+05:30"
+        },
+        "6": {
+          "path": "data/nq/NQ_6m_2026-05-20_to_2026-09-12.csv",
+          "sha256": "cac01d3386a33678310ab3a708fc1bb7b90f07b976cc83eb4ddd5ee487a876ec",
+          "rows": 18848,
+          "first": "2026-05-20T11:42:00+05:30",
+          "last": "2026-09-12T02:24:00+05:30"
+        },
+        "15": {
+          "path": "data/nq/NQ_15m_2026-05-07_to_2026-09-12.csv",
+          "sha256": "052b4fce9ec5404e317a5efe77884f99467f7168476b2531a0ca302eb53ebad8",
+          "rows": 8368,
+          "first": "2026-05-07T11:30:00+05:30",
+          "last": "2026-09-12T02:15:00+05:30"
+        }
+      },
+      "tick": 0.25
+    },
+    "ES": {
+      "name": "E-mini S&P 500 continuous (ES1!)",
+      "point_value_micro": 5.0,
+      "point_value_emini": 50.0,
+      "tick": 0.25,
+      "_cost_note": "ES cost in POINTS is ~0.44 (ES) / ~0.59 (MES), NOT the 1.1 used for MNQ. Never carry the NQ point-cost across instruments -- convert via dollars.",
+      "timeframes": {
+        "3": {
+          "path": "data/es/ES_3m_2026-07-13_to_2026-09-12.csv",
+          "sha256": "15c10a8e57613bf95c80b91aa6f1bb3b6c6bccd8196a28908fe632e55fbc82fe",
+          "rows": 20620,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-09-12T02:27:00+05:30"
+        },
+        "5": {
+          "path": "data/es/ES_5m_2026-06-01_to_2026-09-12.csv",
+          "sha256": "b555551d98cd775a6def2ffc778fa2ebf3c8378e354bb04fbf505a221a3e7ff5",
+          "rows": 20556,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-09-12T02:25:00+05:30"
+        },
+        "6": {
+          "path": "data/es/ES_6m_2026-05-11_to_2026-09-12.csv",
+          "sha256": "2e9114ae68f15f5a92b43794cb8b265d776adfc1a6c702113d1c0333cb4123a5",
+          "rows": 20540,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-09-12T02:24:00+05:30"
+        },
+        "15": {
+          "path": "data/es/ES_15m_2026-04-08_to_2026-09-12.csv",
+          "sha256": "a30ef3005b57b7ea3a99b6d272fc104604375d364687d5fb8b7444e700566fcf",
+          "rows": 10256,
+          "first": "2026-04-08T22:30:00+05:30",
+          "last": "2026-09-12T02:15:00+05:30"
+        }
+      }
+    },
+    "CL": {
+      "name": "WTI Crude Oil continuous (CL1!) -- NYMEX",
+      "point_value_micro": 100.0,
+      "point_value_emini": 1000.0,
+      "tick": 0.01,
+      "_warning": "CL1! rolls MONTHLY, not quarterly. Expect a roll basis shift roughly every month near the 20th-22nd, on top of genuinely violent weekend news gaps. 16 session-open gaps exceed 0.50 pts, the largest -7.72%. Volatility is flat across the set (ATR14 0.18-0.20) unlike the index futures. Strong trending market: 67.04-104.46 in four months, hostile to reversal logic.",
+      "timeframes": {
+        "3": {
+          "path": "data/cli/CL_3m_2026-07-13_to_2026-09-12.csv",
+          "sha256": "e5e9a0d94951d77941c772ba9ce56ba62f75b17a9ff3837cf653738077db47ae",
+          "rows": 20647,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-09-12T02:27:00+05:30"
+        },
+        "5": {
+          "path": "data/cli/CL_5m_2026-06-01_to_2026-09-12.csv",
+          "sha256": "8b3994db9d00a8c911bb3d5c50f065a828733f7f1406b4a30549200f67d602cc",
+          "rows": 20574,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-09-12T02:25:00+05:30"
+        },
+        "6": {
+          "path": "data/cli/CL_6m_2026-05-11_to_2026-09-12.csv",
+          "sha256": "b2ff5ec479a7accfda30160ab9f8d11f4f8c8a73e61b15fec9c3bb21aeef26f8",
+          "rows": 20570,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-09-12T02:24:00+05:30"
+        },
+        "15": {
+          "path": "data/cli/CL_15m_2026-05-06_to_2026-09-12.csv",
+          "sha256": "40a0870d22324b593940c2276ff3376223076bbef012e94bb1134236bee88563",
+          "rows": 8506,
+          "first": "2026-05-06T02:00:00+05:30",
+          "last": "2026-09-12T02:15:00+05:30"
+        }
+      }
+    },
+    "GC": {
+      "name": "Gold continuous (GC1!) -- COMEX",
+      "point_value_micro": 10.0,
+      "point_value_emini": 100.0,
+      "tick": 0.1,
+      "_note": "GC1! rolls on the even-month cycle (Feb/Apr/Jun/Aug/Oct/Dec), not monthly like CL. COMEX holiday hours match CL, not the index futures: 7 Sep ran to 23:55 IST. Best cost-to-volatility of the three non-NQ instruments: ~47 ticks of ATR14 on 5m.",
+      "timeframes": {
+        "3": {
+          "path": "data/gc/GC_3m_2026-07-13_to_2026-09-12.csv",
+          "sha256": "765675b38cf65086204dbce48e117ddf025eebb5572240cb2df99c147778c015",
+          "rows": 20649,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-09-12T02:27:00+05:30"
+        },
+        "5": {
+          "path": "data/gc/GC_5m_2026-06-01_to_2026-09-12.csv",
+          "sha256": "32a89dcbd5afda4cc8acd4cdb6f4c18bace1eb724317a4712b9507b9dae13039",
+          "rows": 20574,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-09-12T02:25:00+05:30"
+        },
+        "6": {
+          "path": "data/gc/GC_6m_2026-05-11_to_2026-09-12.csv",
+          "sha256": "f9ad219cc7420de113e7ddf0de6483c5862eb26383893bbb0e7cde20c191a826",
+          "rows": 20570,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-09-12T02:24:00+05:30"
+        },
+        "15": {
+          "path": "data/gc/GC_15m_2026-05-05_to_2026-09-12.csv",
+          "sha256": "43791bfce0b273eedde50446122ed7f51b5df076802ebcb00f0db3fea07047f8",
+          "rows": 8515,
+          "first": "2026-05-05T23:45:00+05:30",
+          "last": "2026-09-12T02:15:00+05:30"
+        }
+      }
+    },
+    "SIL": {
+      "name": "E-mini Silver continuous (SIL1!) -- COMEX, 1000 oz. NOT full-size SI.",
+      "point_value": 1000.0,
+      "tick": 0.005,
+      "_liquidity_warning": "Thinnest instrument in the set by a wide margin. 5m median volume 129 contracts vs NQ 765 / ES 1192; 12.7% of 5m bars trade under 50 contracts (NQ and ES: 0.0%). Modeled cost of 1 tick + commission almost certainly UNDERSTATES real slippage here. Treat any SIL backtest result as an optimistic upper bound.",
+      "_data_warning": "Zero-trade periods are OMITTED rather than written as zero-volume bars: 1 missing bar on 5m (28 Aug 02:05), 3 on 3m, 4 on 15m. Any indicator using fixed bar counts or bar-index arithmetic will silently mis-align across these.",
+      "_history_warning": "The 15m file reaches 26 Dec 2025 but is NOT one regime. Silver peaked at 121.765 in Jan 2026 with 15m median volume 3,469, then fell to 55.00 by Jul with volume near 400 -- an 8x liquidity collapse alongside a 55% price decline. Do not pool Dec-Feb with Jun-Sep.",
+      "timeframes": {
+        "3": {
+          "path": "data/sil/SIL_3m_2026-07-13_to_2026-09-12.csv",
+          "sha256": "90d7463819b4547f7dc265bf0334e678d99f4f0c0363c5ab4a96afceeae1c4fa",
+          "rows": 20647,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-09-12T02:27:00+05:30"
+        },
+        "5": {
+          "path": "data/sil/SIL_5m_2026-06-01_to_2026-09-12.csv",
+          "sha256": "9bf39cc03424a52fc9e55e085ae124128ceb09d33b40acafc9fada29664c0b06",
+          "rows": 20573,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-09-12T02:25:00+05:30"
+        },
+        "6": {
+          "path": "data/sil/SIL_6m_2026-05-11_to_2026-09-12.csv",
+          "sha256": "ea3d2858afa1ae05d000b187371d4bec09177abce4d21b44f637c3850fb3559e",
+          "rows": 20570,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-09-12T02:24:00+05:30"
+        },
+        "15": {
+          "path": "data/sil/SIL_15m_2025-12-26_to_2026-09-12.csv",
+          "sha256": "6bdb05b11ee2094427722dead83ff52ff6a333981d481cd1b23563363c290988",
+          "rows": 16824,
+          "first": "2025-12-26T10:45:00+05:30",
+          "last": "2026-09-12T02:15:00+05:30"
+        }
+      }
+    }
+  }
+}
