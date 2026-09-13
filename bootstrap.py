@@ -19,7 +19,7 @@ import subprocess
 import sys
 
 # ---- EDIT THIS ONCE: your repo's raw base URL, no trailing slash -------------
-BASE = "https://raw.githubusercontent.com/USERNAME/REPO/main"
+BASE = "https://raw.githubusercontent.com/sahajoydeep/nq-research-data/main"
 # -----------------------------------------------------------------------------
 
 DEST = "/home/claude/nq"
