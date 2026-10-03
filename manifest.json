@@ -1,0 +1,228 @@
+{
+  "project": "nq-research-data",
+  "updated": "2026-10-03",
+  "_howto": [
+    "ONE file per instrument per timeframe -- the longest export. In TradingView, each",
+    "successive download of the same chart reaches further back and ends at the same point,",
+    "so the newest export is always the longest. Keep it, discard the earlier ones.",
+    "",
+    "To add an instrument: create data/<root>/ , upload the CSVs, add an entry below with",
+    "just 'path'. bootstrap.py inventories it fresh and prints a paste-ready fingerprint",
+    "block. After that any silent change to the file gets caught.",
+    "",
+    "Filenames carry their date range so a refreshed export can never silently replace a",
+    "different one -- the defect that invalidated the old '5 (4)' master."
+  ],
+  "instruments": {
+    "NQ": {
+      "name": "E-mini Nasdaq-100 continuous (NQ1!)",
+      "point_value_micro": 2.0,
+      "point_value_emini": 20.0,
+      "timeframes": {
+        "3": {
+          "path": "data/nq/NQ_3m_2026-07-13_to_2026-10-03.csv",
+          "sha256": "e5eb1fc98674f0bbf9dcdb493a23989b0ad5a421460534966fd9323d6933dd12",
+          "rows": 27520,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-03T02:27:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        },
+        "5": {
+          "path": "data/nq/NQ_5m_2026-06-01_to_2026-10-03.csv",
+          "sha256": "254896a7ce0b4b8937992847c4e2bf4431016050868f9902b6f02a9e837f5efc",
+          "rows": 24696,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-03T02:25:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        },
+        "6": {
+          "path": "data/nq/NQ_6m_2026-05-20_to_2026-10-03.csv",
+          "sha256": "f6d6c4446a41835beaca5634e5177a03e6d8f58a6909d07cc25d3ca7c87bda05",
+          "rows": 22298,
+          "first": "2026-05-20T11:42:00+05:30",
+          "last": "2026-10-03T02:24:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        },
+        "15": {
+          "path": "data/nq/NQ_15m_2026-05-07_to_2026-10-03.csv",
+          "sha256": "8005be259c70d8a5e6904eb955cdde8942689a19847c5cb6819162fd01b644ac",
+          "rows": 9748,
+          "first": "2026-05-07T11:30:00+05:30",
+          "last": "2026-10-03T02:15:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        }
+      },
+      "tick": 0.25
+    },
+    "ES": {
+      "name": "E-mini S&P 500 continuous (ES1!)",
+      "point_value_micro": 5.0,
+      "point_value_emini": 50.0,
+      "tick": 0.25,
+      "_cost_note": "ES cost in POINTS is ~0.44 (ES) / ~0.59 (MES), NOT the 1.1 used for MNQ. Never carry the NQ point-cost across instruments -- convert via dollars.",
+      "timeframes": {
+        "3": {
+          "path": "data/es/ES_3m_2026-07-13_to_2026-10-03.csv",
+          "sha256": "a072eeac228e7609aadd4a3eabf2d883378bff5e4ebe07255ecf9e27774ffef8",
+          "rows": 27520,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-03T02:27:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        },
+        "5": {
+          "path": "data/es/ES_5m_2026-06-01_to_2026-10-03.csv",
+          "sha256": "80fe456bd621a4c27a2055ed57ef72dee434486073ad3e5bde19b26b1fb89ecb",
+          "rows": 24696,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-03T02:25:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        },
+        "6": {
+          "path": "data/es/ES_6m_2026-05-11_to_2026-10-03.csv",
+          "sha256": "2a210ad402081043406f989552a5d484f897aa73659b4876373477c927f20419",
+          "rows": 23990,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-03T02:24:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        },
+        "15": {
+          "path": "data/es/ES_15m_2026-04-08_to_2026-10-03.csv",
+          "sha256": "d2967ed7c0fd5853a1e2b1416514041f0dd2c3577cc5a934aed1c0d70ce64a92",
+          "rows": 11636,
+          "first": "2026-04-08T22:30:00+05:30",
+          "last": "2026-10-03T02:15:00+05:30",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        }
+      }
+    },
+    "CL": {
+      "name": "WTI Crude Oil continuous (CL1!) -- NYMEX",
+      "point_value_micro": 100.0,
+      "point_value_emini": 1000.0,
+      "tick": 0.01,
+      "_warning": "CL1! rolls MONTHLY, not quarterly. Expect a roll basis shift roughly every month near the 20th-22nd, on top of genuinely violent weekend news gaps. 16 session-open gaps exceed 0.50 pts, the largest -7.72%. Volatility is flat across the set (ATR14 0.18-0.20) unlike the index futures. Strong trending market: 67.04-104.46 in four months, hostile to reversal logic.",
+      "timeframes": {
+        "3": {
+          "path": "data/cli/CL_3m_2026-07-13_to_2026-10-03.csv",
+          "sha256": "5b97577abd637b691531070bdd5133025b0561a8706c51277980984253fcb043",
+          "rows": 27544,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-03T02:27:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        },
+        "5": {
+          "path": "data/cli/CL_5m_2026-06-01_to_2026-10-03.csv",
+          "sha256": "deaa4d8b1dbf593883aca6d125f47638afb7d986aec1b4059d428b8c8fd6a69f",
+          "rows": 24713,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-03T02:25:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        },
+        "6": {
+          "path": "data/cli/CL_6m_2026-05-11_to_2026-10-03.csv",
+          "sha256": "6caadef45cc08678f71a771c2bb30ab2840a8c728edccc0b1e5dc9609cff0a6a",
+          "rows": 24019,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-03T02:24:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        },
+        "15": {
+          "path": "data/cli/CL_15m_2026-05-06_to_2026-10-03.csv",
+          "sha256": "3229be987fe667f3cfd55b309d6a4e4d02cd32832debf719e9897bb0c1bc7ad6",
+          "rows": 9886,
+          "first": "2026-05-06T02:00:00+05:30",
+          "last": "2026-10-03T02:15:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        }
+      }
+    },
+    "GC": {
+      "name": "Gold -- full-size GC1! (COMEX) through 2026-09-12, then Micro Gold MGC1! from 2026-09-14 (user decision 26 Sep 2026: treat MGC as GC from now on)",
+      "point_value_micro": 10.0,
+      "point_value_emini": 100.0,
+      "tick": 0.1,
+      "_note": "GC1! rolls on the even-month cycle (Feb/Apr/Jun/Aug/Oct/Dec), not monthly like CL. COMEX holiday hours match CL, not the index futures: 7 Sep ran to 23:55 IST. Best cost-to-volatility of the three non-NQ instruments: ~47 ticks of ATR14 on 5m.",
+      "timeframes": {
+        "3": {
+          "path": "data/gc/GC_3m_2026-07-13_to_2026-10-03.csv",
+          "sha256": "cc1bc5cc1b6ce725b9d1c2b8d6515345ea023b4bd08b9358600962b66b82ced6",
+          "rows": 27549,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-03T02:27:00+05:30",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        },
+        "5": {
+          "path": "data/gc/GC_5m_2026-06-01_to_2026-10-03.csv",
+          "sha256": "74eaca5ae04ee21df81b04c19acb7eb071c8b811a08a0003e01b3a59349031d4",
+          "rows": 24714,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-03T02:25:00+05:30",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        },
+        "6": {
+          "path": "data/gc/GC_6m_2026-05-11_to_2026-10-03.csv",
+          "sha256": "2f2f47db94642d6bdbb4585531912b06ca3c1e9e6c3660866d5cdd53f24403fd",
+          "rows": 24020,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-03T02:24:00+05:30",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        },
+        "15": {
+          "path": "data/gc/GC_15m_2026-05-05_to_2026-10-03.csv",
+          "sha256": "1e4efad2682db0a670081d51e4bd758310d28a3c4ae9b0bd428f288c6bd28e1d",
+          "rows": 9895,
+          "first": "2026-05-05T23:45:00+05:30",
+          "last": "2026-10-03T02:15:00+05:30",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        }
+      },
+      "_splice_note": "Contract splice at the 12->14 Sep 2026 weekend. Prices: MGC tracks GC closely (5m closes within 1 tick 60% of the time, 90th pct 3 ticks). VOLUME is NOT comparable across the splice: MGC trades ~2.3x the contracts of GC, so volume ratios/averages jump at 14 Sep; let volume indicators warm up past it. All future gold exports are MGC1!."
+    },
+    "SIL": {
+      "name": "E-mini Silver continuous (SIL1!) -- COMEX, 1000 oz. NOT full-size SI.",
+      "point_value": 1000.0,
+      "tick": 0.005,
+      "_liquidity_warning": "Thinnest instrument in the set by a wide margin. 5m median volume 129 contracts vs NQ 765 / ES 1192; 12.7% of 5m bars trade under 50 contracts (NQ and ES: 0.0%). Modeled cost of 1 tick + commission almost certainly UNDERSTATES real slippage here. Treat any SIL backtest result as an optimistic upper bound.",
+      "_data_warning": "Zero-trade periods are OMITTED rather than written as zero-volume bars: 1 missing bar on 5m (28 Aug 02:05), 3 on 3m, 4 on 15m. Any indicator using fixed bar counts or bar-index arithmetic will silently mis-align across these.",
+      "_history_warning": "The 15m file reaches 26 Dec 2025 but is NOT one regime. Silver peaked at 121.765 in Jan 2026 with 15m median volume 3,469, then fell to 55.00 by Jul with volume near 400 -- an 8x liquidity collapse alongside a 55% price decline. Do not pool Dec-Feb with Jun-Sep.",
+      "timeframes": {
+        "3": {
+          "path": "data/sil/SIL_3m_2026-07-13_to_2026-10-03.csv",
+          "sha256": "0d09e5cac9c79732fd86c2cf7d4eaa78ba67a6c586930361897ad2d1b4793521",
+          "rows": 27546,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-03T02:27:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        },
+        "5": {
+          "path": "data/sil/SIL_5m_2026-06-01_to_2026-10-03.csv",
+          "sha256": "a4e02797f0e4e48a26b088c42a7238d1c5097e65c515a5d226a76697456f8e99",
+          "rows": 24713,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-03T02:25:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        },
+        "6": {
+          "path": "data/sil/SIL_6m_2026-05-11_to_2026-10-03.csv",
+          "sha256": "f1afc34e475aa246f497c8e243f2ceb9f2dc8502a74037241726c68cfd11d93e",
+          "rows": 24020,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-03T02:24:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        },
+        "15": {
+          "path": "data/sil/SIL_15m_2025-12-26_to_2026-10-03.csv",
+          "sha256": "1f92103fdfa68232e80b5f7937176abb52a9a8a710b6a8c701344f417000d627",
+          "rows": 18204,
+          "first": "2025-12-26T10:45:00+05:30",
+          "last": "2026-10-03T02:15:00+05:30",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        }
+      }
+    }
+  }
+}
