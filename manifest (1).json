@@ -1,0 +1,248 @@
+{
+  "project": "nq-research-data",
+  "updated": "2026-10-10",
+  "_howto": [
+    "ONE file per instrument per timeframe -- the longest export. In TradingView, each",
+    "successive download of the same chart reaches further back and ends at the same point,",
+    "so the newest export is always the longest. Keep it, discard the earlier ones.",
+    "",
+    "To add an instrument: create data/<root>/ , upload the CSVs, add an entry below with",
+    "just 'path'. bootstrap.py inventories it fresh and prints a paste-ready fingerprint",
+    "block. After that any silent change to the file gets caught.",
+    "",
+    "Filenames carry their date range so a refreshed export can never silently replace a",
+    "different one -- the defect that invalidated the old '5 (4)' master."
+  ],
+  "instruments": {
+    "NQ": {
+      "name": "E-mini Nasdaq-100 continuous (NQ1!)",
+      "point_value_micro": 2.0,
+      "point_value_emini": 20.0,
+      "timeframes": {
+        "3": {
+          "path": "data/nq/NQ_3m_2026-07-13_to_2026-10-10.csv",
+          "sha256": "5275a945d95c5998c4e99cf8f6733ed1adc52d914265a1ba17b5541080fe6561",
+          "rows": 29820,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-10T02:27:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.3%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        },
+        "5": {
+          "path": "data/nq/NQ_5m_2026-06-01_to_2026-10-10.csv",
+          "sha256": "667d4d0628556225450b4ffc7f28f4970edeb4d4cafb276b81af5ec04653c5ea",
+          "rows": 26076,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-10T02:25:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.3%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        },
+        "6": {
+          "path": "data/nq/NQ_6m_2026-05-20_to_2026-10-10.csv",
+          "sha256": "affa0006555526c7acca4d747bd2aab74001b3d5507205410b6b83499b2f14a8",
+          "rows": 23448,
+          "first": "2026-05-20T11:42:00+05:30",
+          "last": "2026-10-10T02:24:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.3%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        },
+        "15": {
+          "path": "data/nq/NQ_15m_2026-05-07_to_2026-10-10.csv",
+          "sha256": "b394bdfaf7150f2c41bd3905e97d6e1bae64b6a9e9f3d1d87ddc98808dfcc097",
+          "rows": 10208,
+          "first": "2026-05-07T11:30:00+05:30",
+          "last": "2026-10-10T02:15:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.3%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +294.75 pt jump = NQ1! Sep->Dec contract roll splice, not a market move. Quarantine that session like 15 Jun."
+        }
+      },
+      "tick": 0.25
+    },
+    "ES": {
+      "name": "E-mini S&P 500 continuous (ES1!)",
+      "point_value_micro": 5.0,
+      "point_value_emini": 50.0,
+      "tick": 0.25,
+      "_cost_note": "ES cost in POINTS is ~0.44 (ES) / ~0.59 (MES), NOT the 1.1 used for MNQ. Never carry the NQ point-cost across instruments -- convert via dollars.",
+      "timeframes": {
+        "3": {
+          "path": "data/es/ES_3m_2026-07-13_to_2026-10-10.csv",
+          "sha256": "4d77b13952ae28b94520e2767bca52cc363ad8fe01c47444d83890ec01601526",
+          "rows": 29820,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-10T02:27:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.1%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        },
+        "5": {
+          "path": "data/es/ES_5m_2026-06-01_to_2026-10-10.csv",
+          "sha256": "c2ef66f6510f6bd821d5459924e67214558de02a9f11ed1dfc94d089a1cc30dc",
+          "rows": 26076,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-10T02:25:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.1%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        },
+        "6": {
+          "path": "data/es/ES_6m_2026-05-11_to_2026-10-10.csv",
+          "sha256": "cb6eaf58d7171c3a7764ca7ab89d50274c702fe5396387c10a93af7a18970996",
+          "rows": 25140,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-10T02:24:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.1%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        },
+        "15": {
+          "path": "data/es/ES_15m_2026-04-08_to_2026-10-10.csv",
+          "sha256": "e28d22bc42fc39e99f1823c47fb90f3f197b2eb82fc1d590059622b41d243e09",
+          "rows": 12096,
+          "first": "2026-04-08T22:30:00+05:30",
+          "last": "2026-10-10T02:15:00+05:30",
+          "note_volume_revisions": "9-10 Oct 2026 export: prices identical on every shared candle; TradingView now shows slightly lower volume on a few candles of Fri 25 Sep 2026 (up to -3.1%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_roll": "2026-09-15T03:30 IST session open carries a +67.00 pt jump = ES1! Sep->Dec contract roll splice (same bar as the NQ roll), not a market move. Quarantine that session."
+        }
+      }
+    },
+    "CL": {
+      "name": "WTI Crude Oil continuous (CL1!) -- NYMEX",
+      "point_value_micro": 100.0,
+      "point_value_emini": 1000.0,
+      "tick": 0.01,
+      "_warning": "CL1! rolls MONTHLY, not quarterly. Expect a roll basis shift roughly every month near the 20th-22nd, on top of genuinely violent weekend news gaps. 16 session-open gaps exceed 0.50 pts, the largest -7.72%. Volatility is flat across the set (ATR14 0.18-0.20) unlike the index futures. Strong trending market: 67.04-104.46 in four months, hostile to reversal logic.",
+      "timeframes": {
+        "3": {
+          "path": "data/cli/CL_3m_2026-07-13_to_2026-10-10.csv",
+          "sha256": "677a63949f497ef3db1cd3457f7543283354bf45d078239541ea02bf34a187b6",
+          "rows": 29844,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-10T02:27:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle; TradingView now shows lower volume on a few candles of 23-25 Sep 2026 (mostly under 3%, one candle at 12:30 ET on 25 Sep up to -13.6%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        },
+        "5": {
+          "path": "data/cli/CL_5m_2026-06-01_to_2026-10-10.csv",
+          "sha256": "37dd89a33000c5820f1099b355941a47b5c4c0e17535e9cfa2cb7a298d75cd00",
+          "rows": 26093,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-10T02:25:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle; TradingView now shows lower volume on a few candles of 23-25 Sep 2026 (mostly under 3%, one candle at 12:30 ET on 25 Sep up to -13.6%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        },
+        "6": {
+          "path": "data/cli/CL_6m_2026-05-11_to_2026-10-10.csv",
+          "sha256": "7a8e01c06274a6ce863791806ebdb99e4de348f7a72e77e5d14d713c31a1b26e",
+          "rows": 25169,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-10T02:24:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle; TradingView now shows lower volume on a few candles of 23-25 Sep 2026 (mostly under 3%, one candle at 12:30 ET on 25 Sep up to -13.6%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        },
+        "15": {
+          "path": "data/cli/CL_15m_2026-05-06_to_2026-10-10.csv",
+          "sha256": "0cea1830ea84014e5547687b44c45bf5c5854a81e4e1fc4364c597d26a18aecc",
+          "rows": 10346,
+          "first": "2026-05-06T02:00:00+05:30",
+          "last": "2026-10-10T02:15:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle; TradingView now shows lower volume on a few candles of 23-25 Sep 2026 (mostly under 3%, one candle at 12:30 ET on 25 Sep up to -13.6%). Original volumes kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 (15:30, ~18:55, ~19:08, ~20:16 IST) carry exchange volume corrections from the 26 Sep export; prices unchanged.",
+          "note_roll": "2026-09-18T03:30 IST session open gaps -4.61 (~4.6%): probably the CL1! Oct->Nov contract roll into backwardation, not a market move. Treat that session with caution."
+        }
+      }
+    },
+    "GC": {
+      "name": "Gold -- full-size GC1! (COMEX) through 2026-09-12, then Micro Gold MGC1! from 2026-09-14 (user decision 26 Sep 2026: treat MGC as GC from now on)",
+      "point_value_micro": 10.0,
+      "point_value_emini": 100.0,
+      "tick": 0.1,
+      "_note": "GC1! rolls on the even-month cycle (Feb/Apr/Jun/Aug/Oct/Dec), not monthly like CL. COMEX holiday hours match CL, not the index futures: 7 Sep ran to 23:55 IST. Best cost-to-volatility of the three non-NQ instruments: ~47 ticks of ATR14 on 5m.",
+      "timeframes": {
+        "3": {
+          "path": "data/gc/GC_3m_2026-07-13_to_2026-10-10.csv",
+          "sha256": "e40051df57384421fdc6d7757058db768a5a2ba780211b86c02676752bf6c52f",
+          "rows": 29849,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-10T02:27:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 MGC1! export: prices identical on every shared MGC candle except one low (Thu 24 Sep 12:15 ET, 4292.8 -> 4293.0 on 5m and 15m); volume revised on a few candles of 22-25 Sep 2026, mostly lower (largest -15% at 12:15 ET on 24 Sep). Original values kept so results through 2 Oct reproduce. That export's pre-14 Sep candles are MGC and were not used; the repo keeps GC1! there.",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        },
+        "5": {
+          "path": "data/gc/GC_5m_2026-06-01_to_2026-10-10.csv",
+          "sha256": "6964f8aa48ba43f0848bb1cbec3b02d60d856b067d2ae6b6ba6898f1ef71be98",
+          "rows": 26094,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-10T02:25:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 MGC1! export: prices identical on every shared MGC candle except one low (Thu 24 Sep 12:15 ET, 4292.8 -> 4293.0 on 5m and 15m); volume revised on a few candles of 22-25 Sep 2026, mostly lower (largest -15% at 12:15 ET on 24 Sep). Original values kept so results through 2 Oct reproduce. That export's pre-14 Sep candles are MGC and were not used; the repo keeps GC1! there.",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        },
+        "6": {
+          "path": "data/gc/GC_6m_2026-05-11_to_2026-10-10.csv",
+          "sha256": "cdafece269ffd9e43da17db7f19f50f2af8483f7880a7fd1224b8468ac61435e",
+          "rows": 25170,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-10T02:24:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 MGC1! export: prices identical on every shared MGC candle except one low (Thu 24 Sep 12:15 ET, 4292.8 -> 4293.0 on 5m and 15m); volume revised on a few candles of 22-25 Sep 2026, mostly lower (largest -15% at 12:15 ET on 24 Sep). Original values kept so results through 2 Oct reproduce. That export's pre-14 Sep candles are MGC and were not used; the repo keeps GC1! there.",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        },
+        "15": {
+          "path": "data/gc/GC_15m_2026-05-05_to_2026-10-10.csv",
+          "sha256": "b09f23efcebc8b55a59e14c2608f3ecac528ec9f2c52cb8ae2013512719158b8",
+          "rows": 10355,
+          "first": "2026-05-05T23:45:00+05:30",
+          "last": "2026-10-10T02:15:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 MGC1! export: prices identical on every shared MGC candle except one low (Thu 24 Sep 12:15 ET, 4292.8 -> 4293.0 on 5m and 15m); volume revised on a few candles of 22-25 Sep 2026, mostly lower (largest -15% at 12:15 ET on 24 Sep). Original values kept so results through 2 Oct reproduce. That export's pre-14 Sep candles are MGC and were not used; the repo keeps GC1! there.",
+          "splice": "GC1! through 2026-09-12T02:30 IST; MGC1! from 2026-09-14T03:30 IST"
+        }
+      },
+      "_splice_note": "Contract splice at the 12->14 Sep 2026 weekend. Prices: MGC tracks GC closely (5m closes within 1 tick 60% of the time, 90th pct 3 ticks). VOLUME is NOT comparable across the splice: MGC trades ~2.3x the contracts of GC, so volume ratios/averages jump at 14 Sep; let volume indicators warm up past it. All future gold exports are MGC1!."
+    },
+    "SIL": {
+      "name": "E-mini Silver continuous (SIL1!) -- COMEX, 1000 oz. NOT full-size SI.",
+      "point_value": 1000.0,
+      "tick": 0.005,
+      "_liquidity_warning": "Thinnest instrument in the set by a wide margin. 5m median volume 129 contracts vs NQ 765 / ES 1192; 12.7% of 5m bars trade under 50 contracts (NQ and ES: 0.0%). Modeled cost of 1 tick + commission almost certainly UNDERSTATES real slippage here. Treat any SIL backtest result as an optimistic upper bound.",
+      "_data_warning": "Zero-trade periods are OMITTED rather than written as zero-volume bars: 1 missing bar on 5m (28 Aug 02:05), 3 on 3m, 4 on 15m. Any indicator using fixed bar counts or bar-index arithmetic will silently mis-align across these.",
+      "_history_warning": "The 15m file reaches 26 Dec 2025 but is NOT one regime. Silver peaked at 121.765 in Jan 2026 with 15m median volume 3,469, then fell to 55.00 by Jul with volume near 400 -- an 8x liquidity collapse alongside a 55% price decline. Do not pool Dec-Feb with Jun-Sep.",
+      "timeframes": {
+        "3": {
+          "path": "data/sil/SIL_3m_2026-07-13_to_2026-10-10.csv",
+          "sha256": "5e23575b13c9af8945df5b428379670a0447e8f4a1182a39aad08d9154d4499f",
+          "rows": 29846,
+          "first": "2026-07-13T03:30:00+05:30",
+          "last": "2026-10-10T02:27:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle except one low (Fri 25 Sep 12:30 ET, 64.555 -> 64.565 on 5m, 6m and 15m); volume lower on a few candles of 23-25 Sep 2026 (up to -4.8%). Original values kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        },
+        "5": {
+          "path": "data/sil/SIL_5m_2026-06-01_to_2026-10-10.csv",
+          "sha256": "37b6c357e6cb5c33acda31a7b5bda7c93504c72a3b030b63307f6d7407c72c80",
+          "rows": 26093,
+          "first": "2026-06-01T03:30:00+05:30",
+          "last": "2026-10-10T02:25:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle except one low (Fri 25 Sep 12:30 ET, 64.555 -> 64.565 on 5m, 6m and 15m); volume lower on a few candles of 23-25 Sep 2026 (up to -4.8%). Original values kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        },
+        "6": {
+          "path": "data/sil/SIL_6m_2026-05-11_to_2026-10-10.csv",
+          "sha256": "2fa4305205fe34a3208c14458224a37dd19f5fb5b67d06435c67b9dd2644ea1b",
+          "rows": 25170,
+          "first": "2026-05-11T03:30:00+05:30",
+          "last": "2026-10-10T02:24:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle except one low (Fri 25 Sep 12:30 ET, 64.555 -> 64.565 on 5m, 6m and 15m); volume lower on a few candles of 23-25 Sep 2026 (up to -4.8%). Original values kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        },
+        "15": {
+          "path": "data/sil/SIL_15m_2025-12-26_to_2026-10-10.csv",
+          "sha256": "5b6bf0f1fc00af8f9abd5d6343161a95dfe5d9e14792ba9cc222ead15ef13207",
+          "rows": 18664,
+          "first": "2025-12-26T10:45:00+05:30",
+          "last": "2026-10-10T02:15:00+05:30",
+          "note_volume_revisions": "10 Oct 2026 export: prices identical on every shared candle except one low (Fri 25 Sep 12:30 ET, 64.555 -> 64.565 on 5m, 6m and 15m); volume lower on a few candles of 23-25 Sep 2026 (up to -4.8%). Original values kept so results through 2 Oct reproduce.",
+          "note_corrections": "4 bars on 2026-09-11 carry exchange corrections from the 26 Sep export: volume on all four, plus one busted print at 65.68 removed (bar high now 65.675 on 3m/5m/6m)."
+        }
+      }
+    }
+  }
+}
